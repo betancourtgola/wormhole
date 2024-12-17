@@ -5,3 +5,25 @@ requireChecks: true
 requireApproval: true
 githubRemote: origin
 githubBranch: main
+
+# Дополнительные параметры для CI/CD
+environments:
+  - name: dev
+    branch: develop
+    deploy: true
+    notify_on_success: true
+    notify_on_failure: true
+  - name: prod
+    branch: main
+    deploy: true
+    notify_on_success: true
+    notify_on_failure: true
+
+# Пример webhook уведомлений для CI/CD
+notifications:
+  success:
+    - slack: 'https://slack.com/webhook...'
+    - email: 'dev-team@example.com'
+  failure:
+    - slack: 'https://slack.com/webhook...'
+    - email: 'dev-team@example.com'
